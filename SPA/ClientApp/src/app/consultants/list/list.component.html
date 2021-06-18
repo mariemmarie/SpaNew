@@ -1,0 +1,33 @@
+<div class="container">
+  <br />
+  <div class="row">
+    <div class="col">
+      <h3>Consultants</h3>
+    </div>
+    <div class="col text-right">
+      <a href="#" routerLink="/consultants/create/" class="btn btn-success btn-sm">Create New</a>
+    </div>
+  </div>
+  <br />
+  <table class="table table-bordered table-sm">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th></th>
+
+    </tr>
+    <tr *ngFor="let consultant of consultants">
+
+      <td>{{ consultant.firstName }}</td>
+      <td>{{ consultant.lastName }}</td>
+      <td>{{ consultant.email }}</td>
+
+      <td class="text-right">
+        <a href="#" [routerLink]="['/consultants/', consultant.id, 'details']" class="btn btn-info btn-sm">View</a>
+        <a href="#" [routerLink]="['/consultants/', consultant.id, 'edit']" class="btn btn-primary btn-sm">Edit</a>
+        <button type="button" (click)="deleteConsultant(consultant.id)" class="btn btn-danger btn-sm">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
